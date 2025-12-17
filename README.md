@@ -1,9 +1,14 @@
 # DevOps Maven Project
 
-Intermediate-level DevOps project using Git and Maven.
+This project demonstrates:
+- Git for version control
+- Maven for build automation
+- Docker for containerization
+- GitHub Actions for CI automation
 
 ## Build
 mvn clean package
 
-## Run
-java -jar target/maven-project-1.1.0.jar
+## Run with Docker
+docker build -t devops-maven-app .
+docker run -it devops-maven-app
