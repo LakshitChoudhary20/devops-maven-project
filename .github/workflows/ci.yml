@@ -1,0 +1,26 @@
+name: Java Maven CI with Docker
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+
+      - name: Build project with Maven
+        run: mvn clean package
+
+      - name: Build Docker Image
+        run: docker build -t devops-maven-app .
